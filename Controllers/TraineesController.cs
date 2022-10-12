@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TE_CODEFIRST.Data;
 using TE_CODEFIRST.Models;
+using TE_CODEFIRST.Utilities;
 
 namespace TE_CODEFIRST.Controllers
 {
@@ -58,6 +59,7 @@ namespace TE_CODEFIRST.Controllers
         {
             if (ModelState.IsValid)
             {
+                trainee.TraineePassword = EncryptDecrypt.Encrypt(trainee.TraineePassword);
                 _context.Add(trainee);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -97,6 +99,7 @@ namespace TE_CODEFIRST.Controllers
             {
                 try
                 {
+                    trainee.TraineePassword = EncryptDecrypt.Encrypt(trainee.TraineePassword);
                     _context.Update(trainee);
                     await _context.SaveChangesAsync();
                 }

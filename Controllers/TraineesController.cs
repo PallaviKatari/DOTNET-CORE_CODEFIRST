@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TE_CODEFIRST.Data;
 using TE_CODEFIRST.Models;
+//EncryptDecrypt
 using TE_CODEFIRST.Utilities;
 
 namespace TE_CODEFIRST.Controllers
@@ -59,6 +60,9 @@ namespace TE_CODEFIRST.Controllers
         {
             if (ModelState.IsValid)
             {
+                //classname.methodname(123456)
+                //EncryptDecrypt.Encrypt(trainee.TraineePassword);
+                //trainee.TraineePassword=V0P1bOxKJEudFjsUjN35Cw==
                 trainee.TraineePassword = EncryptDecrypt.Encrypt(trainee.TraineePassword);
                 _context.Add(trainee);
                 await _context.SaveChangesAsync();

@@ -4,7 +4,7 @@ namespace TE_CODEFIRST.Utilities
 {
     public class EncryptDecrypt
     {
-        public static string Encrypt(string clearText)
+        public static string Encrypt(string clearText) //123456
         {
             string EncryptionKey = "MAKV2SPBNI99212";
             byte[] clearBytes = System.Text.Encoding.Unicode.GetBytes(clearText);
@@ -23,7 +23,7 @@ namespace TE_CODEFIRST.Utilities
                     clearText = Convert.ToBase64String(ms.ToArray());
                 }
             }
-            return clearText;
+            return clearText; //V0P1bOxKJEudFjsUjN35Cw==
         }
         public static string Decrypt(string cipherText)
         {
